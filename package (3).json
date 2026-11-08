@@ -1,0 +1,11 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "db": "docker compose up -d",
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:all": "npm run db && npm run dev"
+  },
+  "devDependencies": { "concurrently": "^9.0.1" }
+}
